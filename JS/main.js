@@ -1,4 +1,5 @@
-alert("Viaje a Sudamérica!")
+// Primer proyecto
+/* alert("Viaje a Sudamérica!")
 
 const destinoColombia = "Colombia"
 const destinoBrasil = "Brasil"
@@ -11,8 +12,6 @@ const distBrasil = 1463
 const distChile = 910
 const distPerú = 2046
 const distUruguay = 367
-
-let millas
 
 let precioMilla = 23
 
@@ -54,3 +53,44 @@ while (true) {
         alert("Ingrese cantidad de pasajes valido!")
     }
 }
+ */
+
+alert("Viaje a Sudamérica!")
+
+let precioMilla = 23
+
+const calcularPrecio = (millas, precioMilla) => {
+    return millas * precioMilla
+}
+
+const elegirDestino = () => { 
+const destinos = [
+    {pais: "Colombia" , millas: 4198},
+    {pais: "Brasil" , millas: 1463},
+    {pais: "Chile", millas: 910},
+    {pais: "Perú", millas: 2046},
+    {pais: "Uruguay" , millas: 367},
+];
+
+const paises = destinos.map((destino, nro) => `${nro + 1}- ${destino.pais}`).join('\n');
+
+while(true) {
+    const eleccion = parseInt(prompt(`Elige tu destino!\nDestinos disponibles:\n${paises}`));
+    if (eleccion >= 1 && eleccion <= destinos.length){
+        const destinoElegido = destinos[eleccion - 1];
+        alert(`Elegiste viajar a ${destinoElegido.pais}!`)
+        break
+    } else {
+        alert("Selecciona una opción valida!")
+    }
+    
+    const precioTotal = calcularPrecio(destinoElegido.millas, precioMilla)
+    
+    alert(`Tu vuelo será a ${destinoElegido.pais} por un valor de $${calcularPrecio}`)
+}
+}
+elegirDestino()
+
+
+
+  
